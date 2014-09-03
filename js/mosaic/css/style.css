@@ -1,0 +1,14 @@
+#menu {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	background: rgba(0,0,0,0.4);
+	color: white;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	padding: 3em;
+	border-bottom-right-radius: 1em; 
+	-moz-user-select: none; 
+	-khtml-user-select: none; 
+	-webkit-user-select: none; 
+	-o-user-select: none;
+}

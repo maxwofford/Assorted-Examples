@@ -1,11 +1,15 @@
 <html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<script type="text/javascript" src="js/script.js"></script>
 		<title></title>
 	</head>
-	<body onLoad="onStart();">
+	<body onLoad="onStart();" style="margin: 0px;">
 		<div id="container">
+		</div>
+		<div id="menu">
+			<h3 onClick="generateMosaic(hexToNum(getRandomColor()));">Mosaic <span id="seed">test</span></h3>
+			<h3 onClick="generateGradient()">Gradient</h3>
 		</div>
 	</body>
 </html>
