@@ -1,5 +1,5 @@
 function onStart() {
-	generateMosaic(hexToNum(getRandomColor()))
+	generateMosaic(hexToNum(getRandomColor()));
 }
 
 function generateMosaic(baseColor) {
@@ -59,11 +59,12 @@ function rgbToHex(r, g, b) {
 }
 
 function hexToRgb(hex) {
-
+	hex = hex.toString().replace(/^#+/i, '')
+	return hexToNum(hex.substr(0, 2)) + ',' + hexToNum(hex.toString().substr(2, 2)) + ',' + hexToNum(hex.toString().substr(4,2));
 }
 
 function clearContainer() {
 	while(document.getElementById('container').firstChild) {
-		document.getElementById('container').removeChild(document.getElementById('container').firstChild)
+		document.getElementById('container').removeChild(document.getElementById('container').firstChild);
 	}
 }
