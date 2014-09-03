@@ -15,11 +15,17 @@ function generateMosaic(baseColor) {
 
 function generateGradient() {
 	clearContainer();
-	//var order = {a,b,c};
+	//Array shuffle found on http://css-tricks.com/snippets/javascript/shuffle-array/
+	var order = [0,1,2].sort(function() { return 0.5 - Math.random() });
+	var value = [];
 	for (var n = 0; n < 10; n++) {
 		for (var i = 0; i < 10; i++) {
+			value[order.indexOf(0)] = Math.ceil(i * 25.5);
+			value[order.indexOf(1)] = Math.ceil(n * 25.5);
+			value[order.indexOf(2)] = 225;
+			console.log(value.toString());
 			var tile = document.createElement('div');
-			tile.style.cssText = 'display: inline-block; width: 10%; height: 10%; background-color: rgb(' + (Math.ceil(n * 25.5)) + ',' + (Math.ceil(i * 25.5)) + ',255' + ');'
+			tile.style.cssText = 'display: inline-block; width: 10%; height: 10%; background-color: rgb(' + value.toString() + ');';
 			document.getElementById('container').appendChild(tile);
 		};
 	};
