@@ -1,0 +1,1 @@
+A JavaScript implementation of [Conway's game of life](http://en.wikipedia.org/wiki/Conway's_Game_of_Life) made in 45 minutes. I plan on re-writing in multipule iterations for practice.
