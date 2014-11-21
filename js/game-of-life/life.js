@@ -32,8 +32,9 @@ function gridInit(width, height) {
 }
 
 function timeStep(oldGrid) {
-	newGrid = oldGrid;
+	var newGrid = Array(oldGrid.length);
 	for (var i = 0; i < oldGrid.length; i++) {
+		newGrid[i] = Array(oldGrid[i].length)
 		for (var n = 0; n < oldGrid[i].length; n++) {
 			newGrid[i][n] = detectIfAlive(i, n, oldGrid);
 		};
