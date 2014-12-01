@@ -1,23 +1,24 @@
 require 'nokogiri'
 require 'open-uri'
+require 'json'
+require './websites'
 
-base_url = "http://www.apstudynotes.org"
-essay_list_url = "/essays"
-output = File.open('output.json', 'w')
-results = "{\"essays\": {\n"
-essay_urls = []
+# This module is for converting our data to a json file
+module DataExporter
+  class << self
 
-Nokogiri::HTML(open(base_url + essay_list_url)).css('div.entry').each do |entry|
-  url_addition = entry.css('a').first.attribute('href').value
-  essay_urls.push(url_addition)
+    # We take in a hash and output json
+    def data_to_json(data)
+      return JSON.generate(data)
+    end
+
+    # We output our json to output.json
+    def export_data(json)
+      output = File.open('output.json', 'w')
+      output << json
+      return true
+    end
+  end
 end
 
-essay_urls.each do |url_addition|
-  title = "\"#{url_addition.gsub('/',' ').gsub('-',' ').split.map(&:capitalize).join(' ')}\""
-  paragraph = Nokogiri::HTML(open(base_url + url_addition)).css('body').first.css('p').text
-  results << "#{title} : \"#{paragraph.gsub('"','\"').gsub("\n",'\n')}\",\n"
-  puts "I just scraped #{title}"
-end
-results[0..-1]
-results << "}\n}"
-output << results
+DataExporter.export_data(DataExporter.data_to_json(WebsiteScraper.scrape_all))
