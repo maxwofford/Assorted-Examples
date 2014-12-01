@@ -9,7 +9,7 @@ module DataExporter
 
     # We take in a hash and output json
     def data_to_json(data)
-      return JSON.generate(data)
+      return JSON.pretty_generate(data)
     end
 
     # We output our json to output.json
