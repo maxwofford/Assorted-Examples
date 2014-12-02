@@ -16,7 +16,7 @@ module WebsiteScraper
       def get_paragraph(base_url, url_addition)
         base_url = "http://www.apstudynotes.org"
         title = "\"#{url_addition.gsub('/',' ').gsub('-',' ').split.map(&:capitalize).join(' ')}\""
-        paragraph = Nokogiri::HTML(open(base_url + url_addition)).css('body').first.css('p').text
+        paragraph = Nokogiri::HTML(open(base_url + url_addition)).css('body').first.css('p').text.gsub(/Keep reading more(.*)/,'')
         result = {title => paragraph}
         puts "I just scraped #{title}"
         return result
