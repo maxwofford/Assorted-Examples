@@ -21,4 +21,5 @@ module DataExporter
   end
 end
 
-DataExporter.export_data(DataExporter.data_to_json(WebsiteScraper.scrape_all))
+# Example usage:
+# DataExporter.export_data(DataExporter.data_to_json(WebsiteScraper.scrape_all))
